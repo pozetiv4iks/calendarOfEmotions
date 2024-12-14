@@ -1,0 +1,27 @@
+.header{
+    width: 1440px;
+    height: 72px;
+    background-color: #F3EDF7;
+    width:100%;
+    gap: 0px;
+    opacity: 0px; 
+}
+
+.headerContainer{
+    display: flex;
+    margin: 16px 80px 16px 80px;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    flex-basis: auto;
+    align-items: left;
+}
+
+.profileLogo{
+    flex-basis: auto;
+    align-items: left;
+}
+

@@ -13,15 +13,64 @@
     justify-content: space-between;
 }
 
+.navigation{
+    display: flex;
+    width: 364px;
+    height: 36px;
+    gap: 16px;    
+    flex-basis: auto;
+    align-items: left;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15.8px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
 .logo{
     width: 40px;
     height: 40px;
-    flex-basis: auto;
-    align-items: left;
+ 
 }
 
 .profileLogo{
-    flex-basis: auto;
-    align-items: left;
+    border-color: #3F3EA3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: Hug (134px)px;
+    height: Fixed (36px)px;
+    padding: 10px 20px 10px 20px;
+    gap: 10px;
+    border-radius: 20px ;
+    border-width: 0.62px ;
+    opacity: 0px;  
+     
+}
+
+.profileImg{
+    width:24px;
+    height: 24px;
+}
+
+.downloadApp{
+    display: flex;
+    width: Hug (214px)px;
+    height: Fixed (36px)px;
+    padding: 10px 20px 10px 20px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 0.62px ;
+    opacity: 0px; 
+    border-color: #3F3EA3;
+    align-items: center;
+    justify-content: center;   
+}
+
+.appLogo{
+    width:24px;
+    height: 24px;
 }
 

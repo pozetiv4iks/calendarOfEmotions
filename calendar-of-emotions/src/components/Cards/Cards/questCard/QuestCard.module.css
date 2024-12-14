@@ -1,0 +1,10 @@
+.containerCard{
+    width: Fixed (413px)px;
+    height: Fixed (232px)px;
+    padding: 32px;
+    gap: 0px;
+    border-radius: 12px;
+    justify-content: space-between;
+    opacity: 0px;    
+    background: #A4A3FA;
+}

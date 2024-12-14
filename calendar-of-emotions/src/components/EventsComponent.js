@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getEvents, createUser, changeStatus} from '../services/ServerService';
 
-const EventsComponent = () => {
+export const EventsComponent = () => {
   const [events, setEvents] = useState([]);
   const [userId, setUserId] = useState(null);
 

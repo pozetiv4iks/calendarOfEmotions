@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../images/logo.svg';
 import profileLogo from '../../images/account.svg';
+import appLogo from '../../images/applogo.svg';
+
 
 
 export default function Header() {
@@ -11,9 +13,16 @@ export default function Header() {
             <div className={styles.logo}>
                 <img src={logo} alt='logo'></img>
             </div>
-            <div className={styles.profileLogo}>
-                <img src={profileLogo} alt='profile'></img>
-            </div>
+            <div className={styles.navigation}>
+              <div className={styles.downloadApp}>
+                <div className={styles.profileTitel}>Скачать приложение</div>  
+                <img src={appLogo} alt='download app' className={styles.appLogo}></img>
+              </div>
+              <div className={styles.profileLogo}>
+                <div className={styles.profileTitel}>Профиль</div>  
+                <img src={profileLogo} className={styles.profileImg} alt='profile'></img>
+              </div>
+            </div>    
         </div>
     </header>
   )

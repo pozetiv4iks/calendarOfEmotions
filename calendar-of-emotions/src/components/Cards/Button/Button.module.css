@@ -4,8 +4,22 @@
     gap: 10.18px;
     border-radius: 32px;
     opacity: 0px;
-    margin-top: 16px;
+    margin-top: 32px;
+    margin-left:381px;
     border: none;
     color:#ffffff;
     background-color: #3F3EA3;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 25.45px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
+.topButton:hover{
+    background-color: #4c4aa1;
 }

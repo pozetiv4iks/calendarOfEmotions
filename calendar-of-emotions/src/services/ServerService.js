@@ -22,4 +22,16 @@ const createUser = async (userData) => {
   }
 };
 
-export { getEvents, createUser };
+const changeStatus = async (userId, eventId, action) => {
+  try {
+    const data = { items: [ { eventId: eventId, action: action} ] };
+    const response = await axios.post(`${API_URL}/event/set-status/${userId}`, data);
+    return response.data;
+  } catch (error) {
+    console.error('Error changing status:', error);
+    throw error;
+  }
+};
+
+
+export { getEvents, createUser, changeStatus };

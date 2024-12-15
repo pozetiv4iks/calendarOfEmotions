@@ -4,6 +4,7 @@ import styles from './Cards.module.css';
 import Button from './Button/Button';
 import QuestCard from './Cards/questCard/QuestCard';
 import DayQuest from './Cards/dayQuestCard/DayQuest';
+import CompleteCard from './Cards/completCard/CompleteCard';
 
 export default function Cards() {
         const [events, setEvents] = useState([]);
@@ -13,9 +14,7 @@ export default function Cards() {
           const fetchEvents = async () => {
             try {
               const data = await getEvents();
-              setEvents(data.sort((a, b) => {
-                return a.done ? +1 : -1
-              }));
+              setEvents(data)
             } catch (error) {
               console.error('Failed to get events:', error);
             }
@@ -88,6 +87,7 @@ export default function Cards() {
                 cost={event.cost} 
                 questDay={event.questDay} 
                 done={event.done} 
+                setEvents = {setEvents}
             />
         )
     )}

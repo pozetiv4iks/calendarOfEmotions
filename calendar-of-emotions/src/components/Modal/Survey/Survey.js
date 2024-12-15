@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Survey.module.css';
 
-export default function Survey() {
+export default function Survey({handler}) {
   return (
         <div className={styles.container}>
                 <h2>Настройте задания под себя</h2>
@@ -31,7 +31,7 @@ export default function Survey() {
                         </select>
                     </label>
                 </div>
-                <button className={styles.saveButton}>Сохранить</button>
-                </div>
+                <button className={styles.saveButton} onClick={handler}>Сохранить</button>
+        </div>
   )
 }

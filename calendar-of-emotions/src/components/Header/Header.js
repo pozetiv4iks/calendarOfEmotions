@@ -7,17 +7,17 @@ import Modal from '../Modal/Modal';
 
 
 
-export default function Header(onValueChanges) {
+export default function Header() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => { 
     setIsModalOpen(true); 
-    onValueChanges(isModalOpen);
+    
   }; 
 
   const closeModal = () => { 
     setIsModalOpen(false); 
-    onValueChanges(isModalOpen);
+
   };
 
   return (
@@ -36,7 +36,7 @@ export default function Header(onValueChanges) {
                 <img src={profileLogo} className={styles.profileImg} alt='profile'></img>
               </div>
             </div>    
-            {isModalOpen && (<Modal />)}
+            {isModalOpen && (<Modal handleCloseModal={closeModal}/>)}
         </div>
     </header>
   )

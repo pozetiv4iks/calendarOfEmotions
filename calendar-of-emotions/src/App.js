@@ -8,14 +8,11 @@ import Footer from './components/Footer/Footer.js';
 
 function App() {
 
-  const [headerValue, setHeaderValue] = useState(''); 
-  const handleHeaderValueChange = (value) => { 
-    setHeaderValue(value); 
-  };
+  
 
   return (
     <div className="app-container">
-      <Header onValueChanges={handleHeaderValueChange}/>
+      <Header />
       <Cards />
       <Footer />
     </div>

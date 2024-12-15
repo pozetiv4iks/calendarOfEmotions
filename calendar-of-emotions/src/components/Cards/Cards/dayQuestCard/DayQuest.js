@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './DayQuest.module.css';
 import { getEvents, createUser, changeStatus} from '../../../../services/ServerService';
+import { UserContext } from '../../../../userContext';
 
-export default function DayQuest({id, description, duration, cost, userID }) {
-
+export default function DayQuest({id, description, duration, cost}) {
+  const context = useContext(UserContext);
+  const userID = context.userId;
 
   const [durat, setDurat] = useState();
   const [costQuest, setCost] = useState();
@@ -37,6 +39,21 @@ export default function DayQuest({id, description, duration, cost, userID }) {
         break;
     }
 
+    const fetchEvents = async () => {
+      try {
+        const data = await getEvents();
+        setEvents(data)
+      } catch (error) {
+        console.error('Failed to get events:', error);
+      }
+    };
+  
+    const handleChangeStatus = (action) => {
+      changeStatus({userId:userID, action})
+   
+  
+      fetchEvents()
+    }
   })
 
 
@@ -50,12 +67,12 @@ export default function DayQuest({id, description, duration, cost, userID }) {
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.complitedLogo} onClick={()=>{changeStatus({userId:userID, action:'DONE'})}}>
+        <div className={styles.complitedLogo} onClick={()=>{handleChangeStatus('DONE')}}>
         </div>
-        <div className={styles.likeLogo} onClick={()=>{changeStatus({action:'UNLIKE'})}}>
+        <div className={styles.likeLogo} onClick={()=>{handleChangeStatus('UNLIKE')}}>
         </div> 
-        <div className={styles.saveLogo} onClick={()=>{changeStatus({action:'LATER'})}}>
-        </div> 
+        <div className={styles.saveLogo} onClick={()=>{handleChangeStatus('LATE')}}>
+        </div>
       </div>
     </div>
   )

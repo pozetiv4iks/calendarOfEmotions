@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getEvents, createUser, changeStatus} from '../../services/ServerService';
 import styles from './Cards.module.css';
 import Button from './Button/Button';
 import QuestCard from './Cards/questCard/QuestCard';
 import DayQuest from './Cards/dayQuestCard/DayQuest';
 import CompleteCard from './Cards/completCard/CompleteCard';
+import { UserContext } from '../../userContext';
+import Modal from '../Modal/Modal';
 
 export default function Cards() {
         const [events, setEvents] = useState([]);
-        const [userId, setUserId] = useState(null);
+        const context = useContext(UserContext);
       
         useEffect(() => {
           const fetchEvents = async () => {
@@ -31,13 +33,11 @@ export default function Cards() {
             }; 
             try {
               const user = await createUser(userData);
-              setUserId(user.id);
-              console.log()
+              context.setUserId(user.id);
             } catch (error) {
               console.error('Failed to create user:', error);
             }
           };
-
         const handleChangeStatus = async () => {
             const userId = 2;
             const eventId = 2;
@@ -49,7 +49,18 @@ export default function Cards() {
               console.error('Failed to create user:', error);
             }
           };
-         ;
+
+          const [isModalOpen, setIsModalOpen] = useState(false);
+          const openModal = () => { 
+            setIsModalOpen(true); 
+            
+          }; 
+        
+          const closeModal = () => { 
+            setIsModalOpen(false); 
+        
+          };
+         
           
   return (
     <div className={styles.section}>
@@ -63,7 +74,7 @@ export default function Cards() {
               </div>
             </div>
             <div className={styles.btnContainer}>
-                <Button onClick={handleCreateUser}>Настроить под себя</Button>
+                <Button onClick={openModal}>Настроить под себя</Button>
             </div>
         </div>
         <div className={styles.cardsSections}>
@@ -75,8 +86,7 @@ export default function Cards() {
                 description={event.description} 
                 duration={event.duration} 
                 cost={event.cost} 
-                done={event.done} 
-                userId = {userId}
+                done={event.done}
             />
         ) : (
             <QuestCard 
@@ -92,7 +102,7 @@ export default function Cards() {
         )
     )}
 </div>
-
+{isModalOpen && (<Modal handleCloseModal={closeModal}/>)}
     </div>
   )
 }

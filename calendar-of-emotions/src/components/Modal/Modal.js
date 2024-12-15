@@ -6,9 +6,6 @@ import exitLogo from '../../images/exit.svg'
 
 export default function Modal({handleCloseModal}) {
 
-    function name(params) {
-        
-    }
 
   return (
     <div className={styles.container}>
@@ -17,7 +14,7 @@ export default function Modal({handleCloseModal}) {
                 <img className={styles.exitIcon} src={exitLogo} alt='exit' onClick={handleCloseModal}></img>
             </div>
             <div className={styles.global}>
-                {true ? (<Survey handler = {handlerCloseModal}/>) : (<Registration/>)}
+                {true ? (<Survey handler = {handleCloseModal}/>) : (<Registration/>)}
             </div>
         </div>
     </div>

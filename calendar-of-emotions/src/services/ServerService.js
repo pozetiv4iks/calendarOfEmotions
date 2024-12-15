@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://emotion-calendar-api.vercel.app'; 
+const API_URL = 'https://emotion-calendar-api-4a520068-d25a-4ef9-9662-a666d256d578.vercel.app'; 
 
 const getEvents = async () => {
   try {

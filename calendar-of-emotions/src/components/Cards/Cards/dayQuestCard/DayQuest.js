@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from './DayQuest.module.css';
+import { getEvents, createUser, changeStatus} from '../../../../services/ServerService';
 
 export default function DayQuest({id, description, duration, cost, questDay }) {
 
-  // пару часов день пару минут до 100 бун
 
   const [durat, setDurat] = useState();
   const [costQuest, setCost] = useState();
@@ -24,15 +24,15 @@ export default function DayQuest({id, description, duration, cost, questDay }) {
         break;
     }
 
-     switch(0 !== cost){
+     switch(true){
+      case cost == 0:
+        setCost('');
+        break;
       case cost < 100:
         setCost('до 100 BYN');
         break;
       case cost > 100:
-        setCost('');
-        break;
-      default:
-        setCost(false);
+        setCost('более 100 BYN');
         break;
     }
 
@@ -43,20 +43,17 @@ export default function DayQuest({id, description, duration, cost, questDay }) {
     <div className={styles.containerCard}>
       <div className={styles.rightContainer}><div className={styles.tags}>
           <div className={styles.tag}>{durat}</div>
-          {costQuest !== false ? ( <div className={styles.tag}>{costQuest}</div> ) : null}
+          {costQuest && ( <div className={styles.tag}>{costQuest}</div>)}
         </div>
         <div className={styles.cardTitle}>{description}</div>
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.complitedLogo}>
-          {/* <img src={complitedLogo} alt='completed' className={styles.complitedLogo}></img> */}
+        <div className={styles.complitedLogo} onClick={changeStatus(id)}>
         </div> 
-        <div className={styles.likeLogo}>
-          {/* <img src={likeLogo} alt='Not like' className={styles.likeLogo}></img> */}
+        <div className={styles.likeLogo} onClick={changeStatus(id)}>
         </div> 
-        <div className={styles.saveLogo}>
-          {/* <img src={saveLogo} alt='Save' className={styles.saveLogo}></img> */}
+        <div className={styles.saveLogo} onClick={changeStatus(id)}>
         </div> 
       </div>
     </div>

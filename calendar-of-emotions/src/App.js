@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import EventsComponent from './components/EventsComponent';
 import Cards from './components/Cards/Cards.js';
@@ -7,12 +7,17 @@ import UserProfile from './components/UserProfile.js';
 import Footer from './components/Footer/Footer.js';
 
 function App() {
+
+  const [headerValue, setHeaderValue] = useState(''); 
+  const handleHeaderValueChange = (value) => { 
+    setHeaderValue(value); 
+  };
+
   return (
     <div className="app-container">
-      <Header />
+      <Header onValueChanges={handleHeaderValueChange}/>
       <Cards />
       <Footer />
-      
     </div>
   );
 }

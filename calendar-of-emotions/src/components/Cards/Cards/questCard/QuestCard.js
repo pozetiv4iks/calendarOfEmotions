@@ -22,15 +22,15 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
         break;
     }
 
-     switch(0 !== cost){
+     switch(true){
+      case cost == 0:
+        setCost('');
+        break;
       case cost < 100:
         setCost('до 100 BYN');
         break;
       case cost > 100:
-        setCost('');
-        break;
-      default:
-        setCost(false);
+        setCost('более 100 BYN');
         break;
     }
 
@@ -41,7 +41,7 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
     <div className={styles.containerCard}>
       <div className={styles.rightContainer}><div className={styles.tags}>
           <div className={styles.tag}>{durat}</div>
-          {costQuest !== false ? ( <div className={styles.tag}>{costQuest}</div> ) : null}
+          {costQuest && ( <div className={styles.tag}>{costQuest}</div>)}
         </div>
         <div className={styles.cardTitle}>{description}</div>
         

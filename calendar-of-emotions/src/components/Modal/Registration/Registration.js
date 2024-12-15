@@ -1,6 +1,6 @@
 // src/Modal.js
 import React from 'react';
-import styles from './Modal.module.css';
+import styles from './Registartion.module.css';
 
 export default function Registration ({ isOpen, onClose}) {
     if (!isOpen) return null;

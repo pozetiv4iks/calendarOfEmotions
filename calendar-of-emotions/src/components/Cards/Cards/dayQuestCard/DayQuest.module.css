@@ -1,12 +1,13 @@
 .containerCard{
-    width: Fixed (413px)px;
+    display: flex;
+    width: 413px;
     height: 232px;
     gap: 0px;
     border-radius: 12px;
-    padding: 32px;
     justify-content: space-between;
     opacity: 0px;    
     background-color: #A4A3FA;
+    margin: 0;
 }
 
 .rightContainer{
@@ -16,10 +17,14 @@
     gap: 0px;
     align-items: left;
     flex-basis: auto;
+    margin-top:32px;
+    margin-left:32px;
 }
 
 .cardTitle{
+    position: absolute;
     width: 280px;
+    height: 134px;
     gap: 0px;
     opacity: 0px;  
     font-size: 24px;
@@ -30,17 +35,53 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     color:#ffffff;
+    z-index: 1;
 }
 
 .container{
     display: grid; 
     grid-template-rows: 36px 36px 36px;
     grid-template-columns: 36px; 
-    gap: 0px;
+    gap: 30px;
     width: 36px; 
     height: 168px;
+    align-items: right;
+    flex-basis: auto;
+    margin-top:32px;
+    margin-right:32px;
 }
 
-.item{
-    
+.tags{
+    display:flex;
+    gap:6px;
+    height: 24px;
+    gap: 6px;
+    opacity: 0px;
+    text-wrap: nowrap;    
+    align-self: flex-end;
+    margin-left: 0;
+    flex-basis: auto;
+    z-index: 0;
+}
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    padding: 2px 12px 2px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 32px;
+    border: 1px;
+    opacity: 0px;
+    border: 1px solid #FFFFFF;
+    color:#FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.4000000059604645px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }

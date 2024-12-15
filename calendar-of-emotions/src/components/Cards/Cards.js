@@ -56,7 +56,7 @@ export default function Cards() {
         </div>
         <div className={styles.cardsSections}>
     {events.map(event => 
-        !event.quest ? (
+        !event.questDay ? (
             <DayQuest 
                 key={event.id} 
                 id={event.id} 

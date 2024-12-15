@@ -1,0 +1,19 @@
+.header{
+    width: Fill (490px)px;
+    height: Hug (31px)px;
+    gap: 16px;
+    opacity: 0px;
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 30.8px;
+    letter-spacing: var(--DisplayMediumTracking);
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #3F3EA3;    
+}
+
+.title{
+    color: #3F3EA3;
+}

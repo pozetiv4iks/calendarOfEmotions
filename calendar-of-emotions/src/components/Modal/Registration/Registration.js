@@ -6,9 +6,11 @@ export default function Registration ({ isOpen, onClose}) {
     if (!isOpen) return null;
 
     return (
-        <div className={styles.modalOverlay}>
-            <div className={styles.modalContent}>
-                <button className={styles.closeButton} onClick={onClose}>Close</button>
+        <div className={styles.container}>
+            <div className={styles.header}>
+                <div className={styles.title}>
+                    Введите свой ID
+                </div>
             </div>
         </div>
     );

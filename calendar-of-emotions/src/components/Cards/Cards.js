@@ -85,6 +85,7 @@ export default function Cards() {
                             duration={event.duration}
                             cost={event.cost}
                             done={event.done}
+                            setEvents={setEvents}
                         />
                     ) : (
                         <QuestCard

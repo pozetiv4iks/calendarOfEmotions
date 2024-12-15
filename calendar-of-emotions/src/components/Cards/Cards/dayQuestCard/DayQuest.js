@@ -3,7 +3,7 @@ import styles from './DayQuest.module.css';
 import { getEvents, createUser, changeStatus} from '../../../../services/ServerService';
 import { UserContext } from '../../../../userContext';
 
-export default function DayQuest({id, description, duration, cost}) {
+export default function DayQuest({ id, description, duration, cost, questDay, onRemove, setEvents, handleChangeStatus }) {
   const context = useContext(UserContext);
   const userID = context.userId;
 
@@ -39,6 +39,11 @@ export default function DayQuest({id, description, duration, cost}) {
         break;
     }
 
+    const handleStatusChange = async (action) => {
+      await handleChangeStatus(userID, id, action);
+      fetchEvents();
+  };
+
     const fetchEvents = async () => {
       try {
         const data = await getEvents();
@@ -48,12 +53,12 @@ export default function DayQuest({id, description, duration, cost}) {
       }
     };
   
-    const handleChangeStatus = (action) => {
+    const test = (action) => {
       changeStatus({userId:userID, action})
    
   
       fetchEvents()
-    }
+    };
   })
 
 
@@ -67,13 +72,14 @@ export default function DayQuest({id, description, duration, cost}) {
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.complitedLogo} onClick={()=>{handleChangeStatus('DONE')}}>
+        <div className={styles.complitedLogo} onClick={()=>{test('DONE')}}>
         </div>
-        <div className={styles.likeLogo} onClick={()=>{handleChangeStatus('UNLIKE')}}>
+        <div className={styles.likeLogo} onClick={()=>{test('UNLIKE')}}>
         </div> 
-        <div className={styles.saveLogo} onClick={()=>{handleChangeStatus('LATE')}}>
+        <div className={styles.saveLogo} onClick={()=>{test('LATE')}}>
         </div>
       </div>
     </div>
   )
 }
+

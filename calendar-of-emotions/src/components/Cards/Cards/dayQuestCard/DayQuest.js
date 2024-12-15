@@ -39,28 +39,30 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
         break;
     }
 
-    const handleStatusChange = async (action) => {
-      await handleChangeStatus(userID, id, action);
-      fetchEvents();
+    
+
+  })
+  const test = (action) => {
+    const userID = 2;
+    changeStatus({userId:userID, action})
+
+    fetchEvents()
   };
 
-    const fetchEvents = async () => {
-      try {
-        const data = await getEvents();
-        setEvents(data)
-      } catch (error) {
-        console.error('Failed to get events:', error);
-      }
-    };
-  
-    const test = (action) => {
-      changeStatus({userId:userID, action})
-   
-  
-      fetchEvents()
-    };
-  })
+  const handleStatusChange = async (action) => {
+    const userID = 2;
+    await handleChangeStatus(userID, id, action);
+    fetchEvents();
+};
 
+  const fetchEvents = async () => {
+    try {
+      const data = await getEvents();
+      setEvents(data)
+    } catch (error) {
+      console.error('Failed to get events:', error);
+    }
+  };
 
   return (
     <div className={styles.containerCard}>

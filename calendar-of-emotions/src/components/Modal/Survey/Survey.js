@@ -44,7 +44,7 @@ export default function Survey({handler}) {
 
   
   </div>
-  <button type="button" class="tag big-save-btn tag-selected" onClick={handler}>Сохранить</button>
+  <button type="button" class="big-save-btn "  onClick={handler}>Сохранить</button>
 </form>
    </div>    
   

@@ -8,6 +8,20 @@
     max-width: 467px;
     flex-direction: column;
   }
+  .big-save-btn {
+    background-color:#3F3EA3;
+    font-family: 'Roboto';
+    color: white;
+    font-size: 20px;
+  
+    border-radius:32px;
+    width: 225px;
+    padding-top: 15.27px;
+    padding-bottom: 15.27px;
+    height: 56.55px;
+    border: 1px solid rgba(63, 62, 163, 1);
+
+  }
   
   .profile-row {
     border-bottom: 1px solid rgba(230, 230, 255, 0.5);

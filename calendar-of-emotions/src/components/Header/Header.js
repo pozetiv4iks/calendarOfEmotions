@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import logo from '../../images/logo.svg';
 import profileLogo from '../../images/account.svg';
 import appLogo from '../../images/applogo.svg';
+import Modal from '../Modal/Modal';
 
 
 
@@ -30,11 +31,12 @@ export default function Header(onValueChanges) {
                 <div className={styles.profileTitel}>Скачать приложение</div>  
                 <img src={appLogo} alt='download app' className={styles.appLogo}></img>
               </div>
-              <div className={styles.profileLogo}>
+              <div className={styles.profileLogo} onClick={openModal}>
                 <div className={styles.profileTitel} onClick={openModal}>Профиль</div>  
                 <img src={profileLogo} className={styles.profileImg} alt='profile'></img>
               </div>
             </div>    
+            {isModalOpen && (<Modal />)}
         </div>
     </header>
   )

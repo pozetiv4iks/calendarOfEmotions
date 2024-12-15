@@ -13,20 +13,27 @@ export default function Cards() {
           const fetchEvents = async () => {
             try {
               const data = await getEvents();
-              setEvents(data);
+              setEvents(data.sort((a, b) => {
+                return a.done ? +1 : -1
+              }));
             } catch (error) {
               console.error('Failed to get events:', error);
             }
           };
-      
+          
           fetchEvents();
         }, []);
 
         const handleCreateUser = async () => {
-            const userData = { name: 'belysh'}; 
+            const userData = {
+              "adult": true,
+              "personality": "INTROVERT",
+              "sex": "MAN"
+            }; 
             try {
               const user = await createUser(userData);
               setUserId(user.id);
+              console.log()
             } catch (error) {
               console.error('Failed to create user:', error);
             }
@@ -43,7 +50,8 @@ export default function Cards() {
               console.error('Failed to create user:', error);
             }
           };
-    
+         ;
+          
   return (
     <div className={styles.section}>
         <div className={styles.topSection}>
@@ -69,6 +77,7 @@ export default function Cards() {
                 duration={event.duration} 
                 cost={event.cost} 
                 done={event.done} 
+                userId = {userId}
             />
         ) : (
             <QuestCard 

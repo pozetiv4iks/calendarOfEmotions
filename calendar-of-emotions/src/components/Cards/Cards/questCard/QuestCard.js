@@ -40,6 +40,7 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
   return (
     <div className={styles.containerCard}>
       <div className={styles.rightContainer}><div className={styles.tags}>
+          <div className={styles.tag}>Квест дня</div>
           <div className={styles.tag}>{durat}</div>
           {costQuest && ( <div className={styles.tag}>{costQuest}</div>)}
         </div>
@@ -48,13 +49,10 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
       </div>
       <div className={styles.container}> 
         <div className={styles.complitedLogo}>
-          {/* <img src={complitedLogo} alt='completed' className={styles.complitedLogo}></img> */}
         </div> 
         <div className={styles.likeLogo}>
-          {/* <img src={likeLogo} alt='Not like' className={styles.likeLogo}></img> */}
         </div> 
         <div className={styles.saveLogo}>
-          {/* <img src={saveLogo} alt='Save' className={styles.saveLogo}></img> */}
         </div> 
       </div>
     </div>

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './DayQuest.module.css';
 import { getEvents, createUser, changeStatus} from '../../../../services/ServerService';
 
-export default function DayQuest({id, description, duration, cost, questDay }) {
+export default function DayQuest({id, description, duration, cost, userID }) {
 
 
   const [durat, setDurat] = useState();
   const [costQuest, setCost] = useState();
+
 
   useEffect(() => {
     switch (duration){
@@ -49,11 +50,11 @@ export default function DayQuest({id, description, duration, cost, questDay }) {
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.complitedLogo} onClick={changeStatus(id)}>
+        <div className={styles.complitedLogo} onClick={()=>{changeStatus({userId:userID, action:'DONE'})}}>
+        </div>
+        <div className={styles.likeLogo} onClick={()=>{changeStatus({action:'UNLIKE'})}}>
         </div> 
-        <div className={styles.likeLogo} onClick={changeStatus(id)}>
-        </div> 
-        <div className={styles.saveLogo} onClick={changeStatus(id)}>
+        <div className={styles.saveLogo} onClick={()=>{changeStatus({action:'LATER'})}}>
         </div> 
       </div>
     </div>

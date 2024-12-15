@@ -37,6 +37,12 @@
  
 }
 
+.modal{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
 .profileLogo{
     border: solid #3F3EA3; 
     display: flex;

@@ -47,7 +47,6 @@ export const EventsComponent = () => {
       {userId && <p>User ID: {userId}</p>}
       <h1>Change status</h1>
       <button onClick={handleChangeStatus}>Change status (eventId=2)</button>
-     
       <ul>
         {events?.map(event => (
           <li key={event.id}>{event.id}. {event.description}</li>

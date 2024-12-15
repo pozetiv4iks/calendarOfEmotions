@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6e193357.css",
+    "main.js": "/static/js/main.beacf59a.js",
+    "static/media/background.png": "/static/media/background.684195320b868a8e509a.png",
+    "static/media/logo.svg": "/static/media/logo.d858a97709653d192e1e34b276ae49f7.svg",
+    "static/media/completeOff.svg": "/static/media/completeOff.6a7a7a684b82a7f01c84.svg",
+    "static/media/completeOn.svg": "/static/media/completeOn.7ceacf78f5dd3274b41b.svg",
+    "static/media/applogo.svg": "/static/media/applogo.4322ed0878992f81c4caf77d8c079586.svg",
+    "static/media/likes.svg": "/static/media/likes.ef41a2b9029689b0edb9.svg",
+    "static/media/account.svg": "/static/media/account.c3bc95dc8d4431d22a9aa62215f63a1c.svg",
+    "index.html": "/index.html",
+    "static/media/save.svg": "/static/media/save.464c37e9ea30d8fda428.svg",
+    "static/media/exit.svg": "/static/media/exit.3964d43e5c2edf01bda07b8e4c786b69.svg",
+    "main.6e193357.css.map": "/static/css/main.6e193357.css.map",
+    "main.beacf59a.js.map": "/static/js/main.beacf59a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e193357.css",
+    "static/js/main.beacf59a.js"
+  ]
+}

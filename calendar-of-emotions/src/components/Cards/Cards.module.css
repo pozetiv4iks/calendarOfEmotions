@@ -7,26 +7,50 @@
 
 .topSection{
     width: 1280px;
-    height: 170px;
+    height: 250px;
     gap: 32px;
     opacity: 0px; 
 }
 
+.containerTitle{
+    width: 729px;
+    height: 160px;
+    gap: 16px;
+    opacity: 0px;
+    margin-left:275.5px;
+}
+
 .title{
-    width: 845px;
-    height: 80px;
+    width: 729px;
+    height: 88px;
     gap: 0px;
-    opacity: 0px; 
-    margin-left:217.5px;   
-    font-size: 72px;
+    opacity: 0px;   
+    font-size: 80px;
     font-weight: 600;
-    line-height: 79.2px;
+    line-height: 88px;
     letter-spacing: var(--DisplayMediumTracking);
     text-align: left;
     text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;    
     text-wrap: nowrap;
-    color: #3F3EA3;
+}
+
+.preTitle{
+    width: 450px;
+    height: 56px;
+    gap: 0px;
+    opacity: 0px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 27.6px;
+    letter-spacing: var(--DisplayMediumTracking);
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #191716B2;
+    margin-top:16px;
+    margin-left:139.5px;
+
 }
 
 .cardsSections{

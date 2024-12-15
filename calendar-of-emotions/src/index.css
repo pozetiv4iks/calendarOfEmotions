@@ -4,6 +4,6 @@ body{
     padding: 0;
     margin: 0;
     width:1440px;
-    background-color: #FEF7FF;
+    background: linear-gradient(0deg, #ECE5FD, #ECE5FD), linear-gradient(180deg, rgba(180, 162, 250, 0) 57.64%, rgba(180, 162, 250, 0.7) 128.15%);    
     font-family: "Roboto", sans-serif;
 }

@@ -11,9 +11,8 @@ function App() {
     <div className="app-container">
       <Header />
       <Cards />
-      <EventsComponent />
-      <UserProfile/>
       <Footer />
+      
     </div>
   );
 }

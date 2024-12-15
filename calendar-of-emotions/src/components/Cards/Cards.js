@@ -47,8 +47,13 @@ export default function Cards() {
   return (
     <div className={styles.section}>
         <div className={styles.topSection}>
-            <div className={styles.title}>
-                Выполни любое задание
+            <div className={styles.containerTitle}>
+              <div className={styles.title}>
+              Календарь Эмоций
+              </div>
+              <div className={styles.preTitle}>
+              Подборка занятий — каждый день. Настрой под себя и выполняй задания 
+              </div>
             </div>
             <div className={styles.btnContainer}>
                 <Button onClick={handleCreateUser}>Настроить под себя</Button>

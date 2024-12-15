@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './QuestCard.module.css';
-import complitedLogo from '../../../../images/completeOn.svg';
-import likeLogo from '../../../../images/likes.svg';
-import saveLogo from '../../../../images/save.svg';
+
 
 export default function QuestCard({id, description, duration, cost, questDay }) {
   const [durat, setDurat] = useState();
@@ -24,7 +22,7 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
         break;
     }
 
-     switch(0 != cost){
+     switch(0 !== cost){
       case cost < 100:
         setCost('до 100 BYN');
         break;
@@ -49,14 +47,14 @@ export default function QuestCard({id, description, duration, cost, questDay }) 
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.item}>
-          <img src={complitedLogo} alt='completed' className={styles.complitedLogo}></img>
+        <div className={styles.complitedLogo}>
+          {/* <img src={complitedLogo} alt='completed' className={styles.complitedLogo}></img> */}
         </div> 
-        <div className={styles.item}>
-          <img src={likeLogo} alt='Not like' className={styles.likeLogo}></img>
+        <div className={styles.likeLogo}>
+          {/* <img src={likeLogo} alt='Not like' className={styles.likeLogo}></img> */}
         </div> 
-        <div className={styles.item}>
-          <img src={saveLogo} alt='Save' className={styles.saveLogo}></img>
+        <div className={styles.saveLogo}>
+          {/* <img src={saveLogo} alt='Save' className={styles.saveLogo}></img> */}
         </div> 
       </div>
     </div>

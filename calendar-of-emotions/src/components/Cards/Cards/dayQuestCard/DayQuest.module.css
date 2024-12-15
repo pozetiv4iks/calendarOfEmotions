@@ -85,3 +85,27 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
+
+.complitedLogo{
+    cursor: pointer;
+    background-image: url('../../../../images/completeOn.svg');
+    background-repeat: no-repeat;
+}
+
+.complitedLogo:hover, .likeLogo:hover, .saveLogo:hover{
+    opacity: 0.5
+}
+
+.likeLogo{
+    cursor: pointer;
+    background-image: url('../../../../images/likes.svg');
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}
+
+.saveLogo{
+    cursor: pointer;
+    background-image: url('../../../../images/save.svg');
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}

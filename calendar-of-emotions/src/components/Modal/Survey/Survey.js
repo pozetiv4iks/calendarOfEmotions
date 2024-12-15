@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import styles from './Survey.module.css';
+import React, { useContext , useState} from 'react';
+import './Survey.module.css';
 import { UserContext } from '../../../userContext'; 
 
 export default function Survey({handler}) {
@@ -8,37 +8,45 @@ export default function Survey({handler}) {
     const userId = context.userId;
 
   return (
-        <div className={styles.container}>
-                <div className={styles.title}>Настройте задания под себя</div>
-                <div className={styles.containerSec}>
-                    <div className={styles.nameId}>
-                        Ваш ID: {userId}
-                    </div>
-                    <div class="toggle-row">
-                        <label for="ageToggle" class="toggle-label">Вам есть 18 лет?</label>
+<div>
 
-                        <label className="toggle-shape switch"> <input type="checkbox" /> 
-                            <span className="slider round"></span>
-                        </label>
-                    </div>
-                    <div>
-                        <label>Тип личности:
-                            <select>
-                                <option value="extrovert">Экстраверт</option>
-                                <option value="introvert">Интроверт</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label>Пол:
-                            <select>
-                                <option value="male">Мужчина</option>
-                                <option value="female">Женщина</option>
-                            </select>
-                        </label>
-                    </div>
-                    <button className={styles.saveButton} onClick={handler}>Сохранить</button>
-                </div>
-        </div>
+<form >
+    
+    <div class="questions-container">
+    <div class="profile-header">Настройте задания под себя</div>
+  <div class="profile-row">
+    
+    <label for="userId" class="profile-label">Ваш ID</label>
+    <span id="userId" class="profile-value">11</span>
+  </div>
+
+  <div class="toggle-row">
+    <label for="ageToggle" class="toggle-label">Вам есть 18 лет?</label>
+
+     <label className="toggle-shape switch"> <input type="checkbox" /> <span className="slider round"></span></label>
+  </div>
+
+  <div class="question-group">
+    <legend class="question-title">Тип личности</legend>
+    <div class="tags-container">
+      <button type="button" class="tag tag-selected">Экстраверт</button>
+      <button type="button" class="tag tag-unselected">Интроверт</button>
+    </div>
+  </div>
+
+  <div class="question-group">
+    <legend class="question-title">Пол</legend>
+    <div class="tags-container">
+      <button type="button" name="gender" value="Мужчина" class="tag tag-selected">Мужчина</button>
+      <button type="button" name="gender" value="Женщина" class="tag tag-unselected">Женщина</button>
+    </div>
+  </div>
+
+  
+  </div>
+  <button type="button" class="tag big-save-btn tag-selected" onClick={handler}>Сохранить</button>
+</form>
+   </div>    
+  
   )
 }

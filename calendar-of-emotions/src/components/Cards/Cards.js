@@ -25,19 +25,6 @@ export default function Cards() {
         fetchEvents();
     }, []);
 
-    const handleCreateUser = async () => {
-        const userData = {
-            adult: true,
-            personality: 'INTROVERT',
-            sex: 'MAN',
-        };
-        try {
-            const user = await createUser(userData);
-            context.setUserId(user.id);
-        } catch (error) {
-            console.error('Failed to create user:', error);
-        }
-    };
 
     const handleChangeStatus = async (userId, eventId, action) => {
         try {
@@ -76,9 +63,7 @@ export default function Cards() {
                 </div>
             </div>
             <div className={styles.cardsSections}>
-                {events.map((event) => 
-                    (event.action !== "DONE") ? (
-
+                {events.map((event) =>
                     !event.questDay ? (
                         <DayQuest
                             key={event.id}
@@ -102,22 +87,8 @@ export default function Cards() {
                             onRemove={removeCard}
                             handleChangeStatus={handleChangeStatus}
                         />
-                    ) 
-                    ) : (
-                        <CompleteCard
-                            key={event.id}
-                            id={event.id}
-                            description={event.description}
-                            duration={event.duration}
-                            cost={event.cost}
-                            questDay={event.questDay}
-                            done={event.done}
-                            setEvents={setEvents}
-                            onRemove={removeCard}
-                            handleChangeStatus={handleChangeStatus}
-                        />
                     )
-                )} 
+                )}
             </div>
             {isModalOpen && <Modal handleCloseModal={closeModal} />}
         </div>

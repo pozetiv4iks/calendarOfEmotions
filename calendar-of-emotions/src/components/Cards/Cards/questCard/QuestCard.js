@@ -40,6 +40,7 @@ export default function QuestCard({ id, description, duration, cost, questDay, o
     }, [duration, cost]);
 
     const handleStatusChange = async (action) => {
+        const userID = 2;
         await handleChangeStatus(userID, id, action);
         fetchEvents();
     };

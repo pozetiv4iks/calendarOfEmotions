@@ -39,10 +39,16 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
         break;
     }
 
-    const handleStatusChange = async (action) => {
-      await handleChangeStatus(userID, id, action);
-      fetchEvents();
+    
+
+  })
+  const test = (action) => {
+    const userID = 2;
+    changeStatus({userId:userID, action})
+
+    fetchEvents()
   };
+<<<<<<< HEAD
     const fetchEvents = async () => {
       try {
         const data = await getEvents();
@@ -59,7 +65,23 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
       fetchEvents()
     };
   })
+=======
 
+  const handleStatusChange = async (action) => {
+    const userID = 2;
+    await handleChangeStatus(userID, id, action);
+    fetchEvents();
+};
+>>>>>>> 36409375a0e28cf9fae74a6bfa2c246f71633d68
+
+  const fetchEvents = async () => {
+    try {
+      const data = await getEvents();
+      setEvents(data)
+    } catch (error) {
+      console.error('Failed to get events:', error);
+    }
+  };
 
   return (
     <div className={styles.containerCard}>

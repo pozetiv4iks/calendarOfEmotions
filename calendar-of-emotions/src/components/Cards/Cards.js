@@ -76,7 +76,9 @@ export default function Cards() {
                 </div>
             </div>
             <div className={styles.cardsSections}>
-                {events.map((event) =>
+                {events.map((event) => 
+                    (event.action !== "DONE") ? (
+
                     !event.questDay ? (
                         <DayQuest
                             key={event.id}
@@ -100,8 +102,22 @@ export default function Cards() {
                             onRemove={removeCard}
                             handleChangeStatus={handleChangeStatus}
                         />
+                    ) 
+                    ) : (
+                        <CompleteCard
+                            key={event.id}
+                            id={event.id}
+                            description={event.description}
+                            duration={event.duration}
+                            cost={event.cost}
+                            questDay={event.questDay}
+                            done={event.done}
+                            setEvents={setEvents}
+                            onRemove={removeCard}
+                            handleChangeStatus={handleChangeStatus}
+                        />
                     )
-                )}
+                )} 
             </div>
             {isModalOpen && <Modal handleCloseModal={closeModal} />}
         </div>

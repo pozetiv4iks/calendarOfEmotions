@@ -124,6 +124,7 @@
   
   .tag {
     border-radius: 16px;
+    border: none;
     padding: 6px 16px;
     white-space: nowrap;
   }

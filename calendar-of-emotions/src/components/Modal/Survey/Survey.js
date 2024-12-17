@@ -1,5 +1,5 @@
-import React, { useContext , useState} from 'react';
-import './Survey.module.css';
+import React, { useContext } from 'react';
+import './Survey.css';
 import { UserContext } from '../../../userContext'; 
 
 export default function Survey({handler}) {

@@ -27,7 +27,7 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
         break;
     }
 
-     switch(true){
+     switch(true){
       case cost == 0:
         setCost('');
         break;
@@ -43,7 +43,6 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
       await handleChangeStatus(userID, id, action);
       fetchEvents();
   };
-
     const fetchEvents = async () => {
       try {
         const data = await getEvents();
@@ -52,11 +51,11 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
         console.error('Failed to get events:', error);
       }
     };
-  
+
     const test = (action) => {
       changeStatus({userId:userID, action})
-   
-  
+
+
       fetchEvents()
     };
   })
@@ -69,7 +68,7 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
           {costQuest && ( <div className={styles.tag}>{costQuest}</div>)}
         </div>
         <div className={styles.cardTitle}>{description}</div>
-        
+
       </div>
       <div className={styles.container}> 
         <div className={styles.complitedLogo} onClick={()=>{test('DONE')}}>
@@ -82,4 +81,3 @@ export default function DayQuest({ id, description, duration, cost, questDay, on
     </div>
   )
 }
-

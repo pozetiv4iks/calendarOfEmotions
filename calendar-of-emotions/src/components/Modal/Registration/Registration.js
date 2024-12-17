@@ -11,6 +11,9 @@ export default function Registration ({ isOpen, onClose}) {
                 <div className={styles.title}>
                     Введите свой ID
                 </div>
+                <div className={styles.input}>
+                    <input type="text"></input>
+                </div>
             </div>
         </div>
     );

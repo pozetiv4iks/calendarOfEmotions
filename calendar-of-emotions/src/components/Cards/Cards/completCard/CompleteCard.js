@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CompleteCard.module.css';
-import { getEvents, createUser, changeStatus} from '../../../../services/ServerService';
 
 export default function CompleteCard({id, description, duration, cost, questDay, userID, setEvents }) {
 

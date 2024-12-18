@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { getEvents, createUser, changeStatus } from '../../services/ServerService';
+import React, { useState, useEffect } from 'react';
+import { getEvents, changeStatus } from '../../services/ServerService';
 import styles from './Cards.module.css';
 import Button from './Button/Button';
 import QuestCard from './Cards/questCard/QuestCard';
 import DayQuest from './Cards/dayQuestCard/DayQuest';
 import CompleteCard from './Cards/completCard/CompleteCard';
-import { UserContext } from '../../userContext';
 import Modal from '../Modal/Modal';
 
 export default function Cards() {
     const [events, setEvents] = useState([]);
-    const context = useContext(UserContext);
 
     useEffect(() => {
         const fetchEvents = async () => {

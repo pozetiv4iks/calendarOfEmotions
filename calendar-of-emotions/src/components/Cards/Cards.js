@@ -4,6 +4,7 @@ import styles from './Cards.module.css';
 import Button from './Button/Button';
 import QuestCard from './Cards/questCard/QuestCard';
 import DayQuest from './Cards/dayQuestCard/DayQuest';
+import CompleteCard from './Cards/completCard/CompleteCard';
 import Modal from '../Modal/Modal';
 
 export default function Cards() {

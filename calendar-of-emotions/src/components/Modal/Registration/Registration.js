@@ -9,11 +9,16 @@ export default function Registration () {
     
     
 
-    const registraitionUser = () => {
-        const user = createUser({name: null});
-        context.setUserId(user);
-        console.log(user, 'registr')
-    }
+    const registraitionUser = async () => {
+        try {
+            const user = await createUser();
+            context.setUserId(user);
+            console.log(user);
+        } catch (error) {
+            console.error('Error creating user:', error);
+        }
+    };
+    
 
     return (
         <div className={styles.container}>

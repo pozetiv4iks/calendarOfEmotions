@@ -5,10 +5,7 @@ import { UserContext } from '../../../userContext';
 export default function Survey({handler}) {
 
     const context = useContext(UserContext);
-    const userId = context.userId;
-
-    
-
+    const userId = context.userId.id;
     
     console.log(userId, 'survy')
 
@@ -22,7 +19,7 @@ export default function Survey({handler}) {
   <div class="profile-row">
     
     <label for="userId" class="profile-label">Ваш ID</label>
-    <span id="userId" class="profile-value">{userId ? (userId.id) : ('Error')}</span>
+    <span id="userId" class="profile-value">{userId ? (userId) : ('Error')}</span>
   </div>
 
   <div class="toggle-row">

@@ -10,14 +10,13 @@
     height: 100%;
     background: #36364C66;
     z-index: 6;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .leftContainer{
-    flex-basis: auto;
     width: 602px;
-    height: 1018px;
-    margin-left: 838px;
+    height: 100% - 56px;
+    align-items: left;
     padding-top: 56px;
     padding-left: 56px;
     gap: 40px;

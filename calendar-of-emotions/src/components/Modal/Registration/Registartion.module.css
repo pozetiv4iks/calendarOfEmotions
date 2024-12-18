@@ -1,3 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .header{
     width: Fill (490px)px;
     height: Hug (31px)px;
@@ -16,4 +22,47 @@
 
 .title{
     color: #3F3EA3;
+}
+
+.registrationTitle{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17.6px;
+    letter-spacing: var(--DisplayMediumTracking);
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #19171680;
+}
+
+input{
+    width: 487px;
+    height: 5px;
+    padding: 16px;
+    margin-top:50px;
+    gap: 8px;
+    border-radius: 8px ;
+    border: 1px solid #A4A3FA;
+    opacity: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.4000000059604645px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;    
+    color:#3F3EA3;
+}
+
+.registraitionBlock{
+    margin-top:125%;
+    cursor: default;
+}
+
+.registrationTitle span {
+    cursor:pointer;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;    
 }

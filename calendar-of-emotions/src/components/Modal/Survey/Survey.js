@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import './Survey.css';
 import { UserContext } from '../../../userContext'; 
+import { correctUser } from '../../../services/ServerService';
 
 export default function Survey({handler}) {
 
     const context = useContext(UserContext);
     const userId = context.userId.id;
     
-    console.log(userId, 'survy')
+    console.log(userId, 'survy');
+    console.log(correctUser(userId), 'survy');
 
   return (
 <div>

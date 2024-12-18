@@ -6,7 +6,7 @@
     border-radius: 12px;
     justify-content: space-between;
     opacity: 0px;    
-    background-color: #A4A3FA;
+    background-color: #E8E8FF;
     margin: 0;
 }
 
@@ -34,7 +34,7 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color:#ffffff;
+    color:#3F3EA380;
     z-index: 1;
 }
 
@@ -76,8 +76,8 @@
     border-radius: 32px;
     border: 1px;
     opacity: 0px;
-    border: 1px solid #FFFFFF;
-    color:#FFFFFF;
+    border: 1px solid #A4A3Fa;
+    color: #3F3EA380;
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;
@@ -87,26 +87,25 @@
 }
 
 .complitedLogo{
-    cursor: pointer;
+    cursor: default;
     background-image: url('../../../../images/completeOff.svg');
     background-repeat: no-repeat;
 }
 
-.complitedLogo:hover, .likeLogo:hover, .saveLogo:hover{
+
+.likeLogo{
+    cursor: default;
+    background-image: url('../../../../images/likeOff.svg');
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
     opacity: 0.5
 }
 
-.likeLogo{
-    cursor: pointer;
-    background-image: url('../../../../images/likes.svg');
-    background-repeat: no-repeat;
-    transition: background-image 0.5s ease;
-}
-
 .saveLogo{
-    cursor: pointer;
-    background-image: url('../../../../images/save.svg');
+    cursor: default;
+    background-image: url('../../../../images/saveOff.svg');
     background-repeat: no-repeat;
     transition: background-image 0.5s ease;
+    opacity: 0.5
 }
 

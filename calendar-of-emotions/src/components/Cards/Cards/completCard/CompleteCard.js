@@ -39,21 +39,7 @@ export default function CompleteCard({id, description, duration, cost, questDay,
 
   })
 
-  const fetchEvents = async () => {
-    try {
-      const data = await getEvents();
-      setEvents(data)
-    } catch (error) {
-      console.error('Failed to get events:', error);
-    }
-  };
-
-  const handleChangeStatus = (action) => {
-    changeStatus({userId:userID, action})
- 
-
-    fetchEvents()
-  }
+  
 
   return (
     <div className={styles.containerCard}>
@@ -65,11 +51,11 @@ export default function CompleteCard({id, description, duration, cost, questDay,
         
       </div>
       <div className={styles.container}> 
-        <div className={styles.complitedLogo} onClick={()=>{handleChangeStatus('DONE')}}>
+        <div className={styles.complitedLogo}>
         </div>
-        <div className={styles.likeLogo} onClick={()=>{handleChangeStatus('UNLIKE')}}>
+        <div className={styles.likeLogo} >
         </div> 
-        <div className={styles.saveLogo} onClick={()=>{handleChangeStatus('LATE')}}>
+        <div className={styles.saveLogo}>
         </div> 
       </div>
     </div>

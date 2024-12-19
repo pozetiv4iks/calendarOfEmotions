@@ -9,7 +9,6 @@ export default function Modal({handleCloseModal}) {
 
   const context = useContext(UserContext);
   const userId = context.userId;
-  console.log(userId)
   return (
     <div className={styles.container}>
         <div className={styles.leftContainer}>

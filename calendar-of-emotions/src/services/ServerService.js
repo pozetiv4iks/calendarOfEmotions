@@ -37,12 +37,8 @@ const changeStatus = async (userId, eventId, action) => {
 const correctUser = async (userId) => {
   try {
     const data = {items : [ {eventId: 7, action: 'DONE'}]};
-    const response = await axios.post(`${API_URL}/event/set-status/${userId}`, data);
-    if (response.data) {
-      return true
-    } else {
-      return false
-    }
+    const response = await axios.patch(`${API_URL}/user/${userId}`, data);
+    return response.data
   } catch (error) {
     console.error('Error correct user:', error);
     throw error;

@@ -54,8 +54,12 @@ input{
     color:#3F3EA3;
 }
 
+input::placeholder{
+    color:#4a3ea393
+}
+
 .registraitionBlock{
-    margin-top:125%;
+    margin-top:110%;
     cursor: default;
 }
 
@@ -65,4 +69,33 @@ input{
     text-decoration-style: solid;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;    
+}
+
+.buttonContainer{
+    margin-top:50px;
+}
+
+.button{
+    width: 225px;
+    height: 56.55px;
+    padding: 15.27px 0px 15.27px 0px;
+    gap: 10.18px;
+    border-radius: 32px;
+    opacity: 0px;
+    border:1px solid #3F3EA3;
+    background-color: #3F3EA3;
+    color:#ffffff;
+    font-size: 25.45px;
+    font-weight: 500;
+    line-height: 25.45px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;   
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #ffffff;
+    color:#3F3EA3;
 }

@@ -9,22 +9,30 @@ export default function Registration () {
     
     const handleChangeInput = (event) => {
         const inputValue = event.target.value; 
+        if (inputValue === ''){
+            setValue('');
+        } else {
         const numericValue = parseInt(inputValue, 10);
         setValue(numericValue);
+        }
     }
 
     const acceptRegistration = async () => {
-        
-        const request = await correctUser(inputValue);
-        console.log('req ', request, ' reg ', inputValue )
-        return request ? context.setUserId(inputValue) : null
+        try {
+            const user = await correctUser(inputValue);
+            console.log('reg user',user);
+            
+            context.setUserId(user);
+        } catch (error) {
+            console.error('Error accept user:', error);
+        }
     }
 
     const registraitionUser = async () => {
         try {
             const user = await createUser();
+            console.log('reg user',user);
             context.setUserId(user);
-            console.log(user);
         } catch (error) {
             console.error('Error creating user:', error);
         }
@@ -38,10 +46,10 @@ export default function Registration () {
                     Введите свой ID
                 </div>
                 <div className={styles.input}>
-                    <input type="text" value={inputValue} onChange={handleChangeInput}></input>
+                    <input type="text" value={inputValue} onChange={handleChangeInput} placeholder={inputValue === '' ? '132' : ''}></input>
                 </div>
-                <div className={styles.buttun}>
-                    <button onClick={acceptRegistration}>Войти</button>
+                <div className={styles.buttonContainer}>
+                    <button className={styles.button} onClick={acceptRegistration}>Войти</button>
                 </div>
             </div>
             <div className={styles.registraitionBlock}>

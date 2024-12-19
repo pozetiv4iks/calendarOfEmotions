@@ -1,4 +1,3 @@
-// src/Modal.js
 import React, { useState, useContext } from 'react';
 import styles from './Registartion.module.css';
 import { UserContext } from '../../../userContext';
@@ -42,7 +41,7 @@ export default function Registration () {
                     <input type="text" value={inputValue} onChange={handleChangeInput}></input>
                 </div>
                 <div className={styles.buttun}>
-                    <button onClick={acceptRegistration}></button>
+                    <button onClick={acceptRegistration}>Войти</button>
                 </div>
             </div>
             <div className={styles.registraitionBlock}>

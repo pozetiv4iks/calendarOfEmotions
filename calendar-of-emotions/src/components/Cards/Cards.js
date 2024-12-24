@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { getEvents, changeStatus } from '../../services/ServerService';
+import React, { useState, useEffect, useContext } from 'react';
+import { getEvents, acceptStatus } from '../../services/ServerService';
 import styles from './Cards.module.css';
 import Button from './Button/Button';
 import QuestCard from './Cards/questCard/QuestCard';
 import DayQuest from './Cards/dayQuestCard/DayQuest';
 import CompleteCard from './Cards/completCard/CompleteCard';
 import Modal from '../Modal/Modal';
+import { UserContext } from '../../userContext';
 
 export default function Cards() {
     const [events, setEvents] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const context = useContext(UserContext);
+    const userId = context.userId;
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -23,18 +27,38 @@ export default function Cards() {
         fetchEvents();
     }, []);
 
+    useEffect(() => {
+            const fetchIdUser = async () => {
+                try{
+                    const data = await acceptStatus(userId.id);
+                    setEvents(data)
+                } catch (error){
+                    console.error('Failed ti event')
+                }
+            };
 
-    const handleChangeStatus = async (userId, eventId, action) => {
+            fetchIdUser()
+    }, [userId])
+    
+    const handleStatusChange = async (id) => {
         try {
-            await changeStatus(userId, eventId, action);
-            const updatedEvents = await getEvents();
-            setEvents(updatedEvents);
+            const response = await acceptStatus(userId.id);
+            const updatedEvents = events.map((event) =>
+             event.id === id ? {...event, action: response} : event
+            );
+
+            const completedEvents = updatedEvents.filter(event => event.action === 'DONE'); 
+            const incompleteEvents = updatedEvents.filter(event => event.action !== 'DONE');
+            console.log('data', response);
+            console.log('id event', id)
+            setEvents([...incompleteEvents, ...completedEvents]);
         } catch (error) {
             console.error('Failed to change status:', error);
         }
-    };
+    }
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -61,32 +85,47 @@ export default function Cards() {
                 </div>
             </div>
             <div className={styles.cardsSections}>
-                {events.map((event) =>
-                    !event.questDay ? (
-                        <DayQuest
-                            key={event.id}
-                            id={event.id}
-                            description={event.description}
-                            duration={event.duration}
-                            cost={event.cost}
-                            done={event.done}
-                            setEvents={setEvents}
-                        />
-                    ) : (
-                        <QuestCard
-                            key={event.id}
-                            id={event.id}
-                            description={event.description}
-                            duration={event.duration}
-                            cost={event.cost}
-                            questDay={event.questDay}
-                            done={event.done}
-                            setEvents={setEvents}
-                            onRemove={removeCard}
-                            handleChangeStatus={handleChangeStatus}
-                        />
-                    )
-                )}
+            {events.map((event) => {
+                    if (event.action === 'DONE') {
+                        return (
+                            <CompleteCard
+                                key={event.id}
+                                id={event.id}
+                                description={event.description}
+                                duration={event.duration}
+                                cost={event.cost}
+                                setEvents={setEvents}
+                                onRemove={removeCard}
+                            />
+                        );
+                    } else {
+                        return !event.questDay ? (
+                            <DayQuest
+                                key={event.id}
+                                id={event.id}
+                                description={event.description}
+                                duration={event.duration}
+                                cost={event.cost}
+                                done={event.done}
+                                setEvents={setEvents}
+                                changeStatus={() => handleStatusChange(event.id)}
+                            />
+                        ) : (
+                            <QuestCard
+                                key={event.id}
+                                id={event.id}
+                                description={event.description}
+                                duration={event.duration}
+                                cost={event.cost}
+                                questDay={event.questDay}
+                                done={event.done}
+                                setEvents={setEvents}
+                                onRemove={removeCard}
+                                changeStatus={() => handleStatusChange(event.id)}
+                            />
+                        );
+                    }
+                })}
             </div>
             {isModalOpen && <Modal handleCloseModal={closeModal} />}
         </div>

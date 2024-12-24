@@ -3,7 +3,7 @@ import styles from './QuestCard.module.css';
 import { UserContext } from '../../../../userContext';
 import { getEvents, changeStatus } from '../../../../services/ServerService';
 
-export default function QuestCard({ id, description, duration, cost, questDay, onRemove, setEvents, handleChangeStatus }) {
+export default function QuestCard({ id, description, duration, cost, questDay, onRemove, setEvents}) {
     const [durat, setDurat] = useState();
     const [costQuest, setCost] = useState();
 
@@ -41,7 +41,7 @@ export default function QuestCard({ id, description, duration, cost, questDay, o
 
     const handleStatusChange = async (action) => {
         const userID = 2;
-        await handleChangeStatus(userID, id, action);
+        await changeStatus(userID, id, action);
         fetchEvents();
     };
 

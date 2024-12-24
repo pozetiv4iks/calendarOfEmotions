@@ -45,5 +45,16 @@ const correctUser = async (userId) => {
   }
 };
 
+const acceptStatus = async (id) => {
+  try{
+    const data = {items : [{eventId:id, action: 'DONE'}]};
+    const response = await axios.post(`${API_URL}/event/set-status/${id}`, data);
+    return response.data
+  } catch (error) {
+    console.error('Error accept status:', error);
+    throw error;
+  }
+}
 
-export { getEvents, createUser, changeStatus, correctUser };
+
+export { getEvents, createUser, changeStatus, correctUser, acceptStatus };

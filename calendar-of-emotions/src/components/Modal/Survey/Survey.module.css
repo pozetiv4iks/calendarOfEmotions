@@ -142,6 +142,7 @@
 .tagUnselected {
   border: 1px solid rgba(63, 62, 163, 1);
   color: rgba(63, 62, 163, 1);
+  background-color: #FFFFFF;
 }
 
 .tagDisabled {

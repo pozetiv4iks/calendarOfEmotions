@@ -13,12 +13,26 @@ export default function Survey({ handler }) {
     };
 
     const [isAdult, setIsAdult] = useState(context.userId.adult || false);
+    const [personality, setPersonality] = useState(context.userId.personality  || 'EXTROVERT');
+    const [sex, setSex] = useState(context.userId.sex || 'MAN');
 
     const handleToggleChange = (event) => {
         const newValue = event.target.checked;
         setIsAdult(newValue);
-        context.userId.adult = newValue;  // Обновляем значение `adult` в context
+        context.userId.adult = newValue;
         console.log('Чекбокс включен:', newValue);
+    };
+
+    const handlePersonalityChange = (newPersonality) => {
+        setPersonality(newPersonality);
+        context.userId.personality = newPersonality;
+        console.log('Personality изменен на:', newPersonality);
+    };
+
+    const handleSexChange = (newSex) => {
+        setSex(newSex);
+        context.userId.sex = newSex;
+        console.log('Sex изменен на:', newSex);
     };
 
     return (
@@ -45,15 +59,15 @@ export default function Survey({ handler }) {
                     <div className={styles.questionGroup}>
                         <legend className={styles.questionTitle}>Тип личности</legend>
                         <div className={styles.tagsContainer}>
-                            <button type="button" className={`${styles.tag} ${styles.tagSelected}`}>Экстраверт</button>
-                            <button type="button" className={`${styles.tag} ${styles.tagUnselected}`}>Интроверт</button>
+                            <button type="button" className={`${styles.tag} ${personality === 'EXTROVERT' ? styles.tagSelected : styles.tagUnselected}`} onClick={() => handlePersonalityChange('EXTROVERT')}>Экстраверт</button>
+                            <button type="button" className={`${styles.tag} ${personality === 'INTROVERT' ? styles.tagSelected : styles.tagUnselected}`} onClick={() => handlePersonalityChange('INTROVERT')}>Интроверт</button>
                         </div>
                     </div>
                     <div className={styles.questionGroup}>
                         <legend className={styles.questionTitle}>Пол</legend>
                         <div className={styles.tagsContainer}>
-                            <button type="button" name="gender" value="Мужчина" className={`${styles.tag} ${styles.tagSelected}`}>Мужчина</button>
-                            <button type="button" name="gender" value="Женщина" className={`${styles.tag} ${styles.tagUnselected}`}>Женщина</button>
+                            <button type="button" className={`${styles.tag} ${sex === 'MAN' ? styles.tagSelected : styles.tagUnselected}`} onClick={() => handleSexChange('MAN')}>Мужчина</button>
+                            <button type="button" className={`${styles.tag} ${sex === 'WOMAN' ? styles.tagSelected : styles.tagUnselected}`} onClick={() => handleSexChange('WOMAN')}>Женщина</button>
                         </div>
                     </div>
                 </div>

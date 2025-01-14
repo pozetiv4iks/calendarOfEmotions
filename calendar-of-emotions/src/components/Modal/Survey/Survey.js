@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import styles from './Survey.module.css';
 import { UserContext } from '../../../userContext';
+import { updateDataUser } from '../../../services/ServerService';
 
 export default function Survey({ handler }) {
     const context = useContext(UserContext);
     const userId = context.userId.id;
-
-    console.log(context.userId.adult, 'id in survey');
 
     const handleSetUserId = () => {
         context.setUserId(null);
@@ -34,6 +33,11 @@ export default function Survey({ handler }) {
         context.userId.sex = newSex;
         console.log('Sex изменен на:', newSex);
     };
+
+    const handleDataSend = () => {
+        updateDataUser(isAdult, personality, sex, userId)
+        handler()
+    }
 
     return (
         <div>
@@ -71,7 +75,7 @@ export default function Survey({ handler }) {
                         </div>
                     </div>
                 </div>
-                <button type="button" className={styles.bigSaveBtn} onClick={handler}>Сохранить</button>
+                <button type="button" className={styles.bigSaveBtn} onClick={handleDataSend}>Сохранить</button>
                 <button type="button" className={styles.exit} onClick={handleSetUserId}></button>
             </form>
         </div>

@@ -57,15 +57,22 @@ const acceptStatus = async (id) => {
 }
 
 const updateDataUser = async (adult, personality, sex, userId) => {
-  try{
-    const data = {items : [{'adult': adult, 'personality': personality, 'sex': sex}]};
-    const response = await axios.patch(`${API_URL}/user/${userId}`, data);
-    return response.data
+  try {
+    const data = { adult, personality, sex };
+    const response = await axios.patch(`${API_URL}/user/${userId}`, data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': '*/*'
+      }
+    });
+    console.log(response.data);
+    return response.data;
   } catch (error) {
-    console.error('Error send data user:', error);
+    console.error('Error sending data user:', error);
     throw error;
   }
-}
+};
+
 
 
 export { getEvents, createUser, changeStatus, correctUser, acceptStatus, updateDataUser };

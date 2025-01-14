@@ -39,7 +39,7 @@ export default function Cards() {
 
             fetchIdUser()
     }, [userId])
-    
+
     const handleStatusChange = async (id) => {
         try {
             const response = await acceptStatus(userId.id);
@@ -70,6 +70,11 @@ export default function Cards() {
     const removeCard = (id) => {
         setEvents(events.filter((event) => event.id !== id));
     };
+
+    const doneCard = (id) => {
+        
+    }
+
 
     return (
         <div className={styles.section}>

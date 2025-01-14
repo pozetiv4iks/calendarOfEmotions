@@ -12,26 +12,24 @@ export default function Survey({ handler }) {
     };
 
     const [isAdult, setIsAdult] = useState(context.userId.adult || false);
-    const [personality, setPersonality] = useState(context.userId.personality  || 'EXTROVERT');
-    const [sex, setSex] = useState(context.userId.sex || 'MAN');
+    const [personality, setPersonality] = useState(context.userId.personality  || null);
+    const [sex, setSex] = useState(context.userId.sex || null);
 
     const handleToggleChange = (event) => {
         const newValue = event.target.checked;
         setIsAdult(newValue);
         context.userId.adult = newValue;
-        console.log('Чекбокс включен:', newValue);
+
     };
 
     const handlePersonalityChange = (newPersonality) => {
         setPersonality(newPersonality);
         context.userId.personality = newPersonality;
-        console.log('Personality изменен на:', newPersonality);
     };
 
     const handleSexChange = (newSex) => {
         setSex(newSex);
         context.userId.sex = newSex;
-        console.log('Sex изменен на:', newSex);
     };
 
     const handleDataSend = () => {

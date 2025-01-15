@@ -3,7 +3,7 @@ import styles from './DayQuest.module.css';
 import { getEvents, changeStatus } from '../../../../services/ServerService';
 import { UserContext } from '../../../../userContext';
 
-export default function DayQuest({ id, description, duration, cost, done, setEvents, changeStatus }) {
+export default function DayQuest({ id, description, duration, cost, done, setEvents, onRemove, changeStatus }) {
   const context = useContext(UserContext);
   const userID = context.userId;
 
@@ -39,17 +39,7 @@ export default function DayQuest({ id, description, duration, cost, done, setEve
         break;
     }
   }, [duration, cost]);
-
-  const fetchEvents = async () => {
-    try {
-      const data = await getEvents();
-      setEvents(data);
-    } catch (error) {
-      console.error('Failed to get events:', error);
-    }
-  };
-
-
+  
   return (
     <div className={styles.containerCard}>
       <div className={styles.rightContainer}>
@@ -61,7 +51,7 @@ export default function DayQuest({ id, description, duration, cost, done, setEve
       </div>
       <div className={styles.container}>
         <div className={styles.complitedLogo} onClick={changeStatus}></div>
-        <div className={styles.likeLogo} onClick={changeStatus}></div>
+        <div className={styles.likeLogo} onClick={onRemove}></div>
         <div className={styles.saveLogo} onClick={changeStatus}></div>
       </div>
     </div>

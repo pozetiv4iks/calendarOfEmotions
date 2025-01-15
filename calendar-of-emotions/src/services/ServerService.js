@@ -47,6 +47,7 @@ const correctUser = async (userId) => {
 
 const acceptStatus = async (id) => {
   try{
+    console.log(id)
     const data = {items : [{eventId:id, action: 'DONE'}]};
     const response = await axios.post(`${API_URL}/event/set-status/${id}`, data);
     return response.data
@@ -65,7 +66,6 @@ const updateDataUser = async (adult, personality, sex, userId) => {
         'accept': '*/*'
       }
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Error sending data user:', error);

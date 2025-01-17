@@ -40,7 +40,7 @@ const correctUser = async (userId) => {
     const response = await axios.patch(`${API_URL}/user/${userId}`, data);
     return response.data
   } catch (error) {
-    console.error('Error correct user:', error);
+    console.error('Error correct users:', error);
     throw error;
   }
 };

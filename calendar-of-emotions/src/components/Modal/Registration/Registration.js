@@ -31,10 +31,10 @@ export default function Registration () {
     const registraitionUser = async () => {
         try {
             const user = await createUser();
-            console.log('reg user',user);
+            console.log('reg users',user);
             context.setUserId(user);
         } catch (error) {
-            console.error('Error creating user:', error);
+            console.error('Error creating users:', error);
         }
     };
     

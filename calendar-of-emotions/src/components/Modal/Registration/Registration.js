@@ -20,11 +20,11 @@ export default function Registration () {
     const acceptRegistration = async () => {
         try {
             const user = await correctUser(inputValue);
-            console.log('reg user',user);
+            console.log('reg users',user);
             
             context.setUserId(user);
         } catch (error) {
-            console.error('Error accept user:', error);
+            console.error('Error accept users:', error);
         }
     }
 

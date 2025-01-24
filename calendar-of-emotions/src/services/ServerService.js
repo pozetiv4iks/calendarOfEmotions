@@ -36,7 +36,7 @@ const changeStatus = async (userId, eventId, action) => {
 
 const correctUser = async (userId) => {
   try {
-    const data = {items : [ {eventId: 7, action: 'DONE'}]};
+    const data = {items : [ {eventId: 7, action: null}]};
     const response = await axios.patch(`${API_URL}/user/${userId}`, data);
     return response.data
   } catch (error) {

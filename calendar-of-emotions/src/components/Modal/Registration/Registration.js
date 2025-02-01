@@ -43,7 +43,7 @@ export default function Registration () {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.title}>
-                    Введите свой ID
+                    Введите свой ID:
                 </div>
                 <div className={styles.input}>
                     <input type="text" value={inputValue} onChange={handleChangeInput} placeholder={inputValue === '' ? '132' : ''}></input>
